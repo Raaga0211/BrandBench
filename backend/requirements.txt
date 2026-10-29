@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+python-multipart
+sqlalchemy
+psycopg[binary]
+pydantic
+httpx
+pillow
+opencv-python-headless
+pytesseract
+pymupdf
+python-docx
+pytest

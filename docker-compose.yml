@@ -1,0 +1,10 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment: {POSTGRES_USER: bb, POSTGRES_PASSWORD: bb, POSTGRES_DB: bb}
+    healthcheck: {test: ["CMD-SHELL", "pg_isready -U bb"], interval: 3s, retries: 20}
+  app:
+    build: .
+    environment: {DATABASE_URL: "postgresql+psycopg://bb:bb@db:5432/bb"}
+    ports: ["8000:8000"]
+    depends_on: {db: {condition: service_healthy}}
